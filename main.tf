@@ -1,35 +1,32 @@
-# module "zone" {
-#     source                  = "./modules/zone"
-#     createZone              = true
-#     internal_domain_name    = "test.internal.com"
-#     vpc_id                  = "vpc-027d33646176cc47c"
-#     secondaryVPC            = false
-#     secondary_vpc_id        = ["vpc-855826ff"]
-# }
-
 module "zone" {
     source        = "./modules/zone"
     createZone    = true
     zones = {
         "private-zone" = {
-        domain_name = "test.internal.com"
-        vpc = [
-            {
-            vpc_id = "vpc-027d33646176cc47c"
-            },
-            {
-            vpc_id = "vpc-855826ff"
-            },
-        ]
+            domain_name = "test.internal.com"
+            vpc = [
+                {
+                vpc_id = "vpc-999999999"
+                },
+                {
+                vpc_id = "vpc-000000000"
+                },
+            ]
+            tags = {
+                Name = "private-zone"
+            }
         }
+    }
+    tags = {
+        ManagedBy = "terraform"
     }
 }
 
 module "records" {
     source                  = "./modules/records"
-    createRecord            = true
-    zone_id                 = module.zone.route53_zone_id.private-zone
-    zone_name               = module.zone.route53_zone_name.private-zone
+    createRecord            = false
+    zone_id                 = "module.zone.route53_zone_id.private-zone" # If you already have hosted zone use hosted zone id
+    zone_name               = "module.zone.route53_zone_name.private-zone" # If you already have hosted zone use hosted zone name
     recordName = [
         {
             name = "test"

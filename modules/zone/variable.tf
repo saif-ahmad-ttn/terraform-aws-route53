@@ -10,24 +10,11 @@ variable "tags" {
   default     = {}
 }
 
-# variable "createZone" {}
-
 variable "createZone" {
   description = "Whether to create Route53 zone"
   type        = bool
-  default     = true
-}
-# variable "internal_domain_name" {}
+}  
 
-# variable "vpc_id" {}
-
-# variable "secondaryVPC" {}
-
-# variable "secondary_vpc_id" {
-#   description = "A list of subnet IDs where the nodes/node groups will be provisioned. If `control_plane_subnet_ids` is not provided, the EKS cluster control plane (ENIs) will be provisioned in these subnets"
-#   type        = list(string)
-#   default     = []
-# }
 
 
 
