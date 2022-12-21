@@ -3,7 +3,7 @@
 [![Lint Status](https://github.com/tothenew/terraform-aws-route53/workflows/Lint/badge.svg)](https://github.com/tothenew/terraform-aws-route53/actions)
 [![LICENSE](https://img.shields.io/github/license/tothenew/terraform-aws-route53)](https://github.com/tothenew/terraform-aws-route53/blob/master/LICENSE)
 
-This is a lambda to use for baseline. The default actions will provide updates for section bitween Requirements and Outputs.
+This is a route53 to use for baseline. The default actions will provide updates for section between Requirements and Outputs.
 
 The following content needed to be created and managed:
  - Introduction
