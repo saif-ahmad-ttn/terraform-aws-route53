@@ -3,7 +3,7 @@ module "zone" {
     createZone              = true
     internal_domain_name    = "test.internal.com"
     vpc_id                  = "vpc-027d33646176cc47c"
-    secondaryVPC            = false
+    secondaryVPC            = true
     secondary_vpc_id        = ["vpc-855826ff"]
 }
 
